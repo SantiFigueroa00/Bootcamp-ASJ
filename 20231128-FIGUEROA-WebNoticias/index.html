@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Maquetado de Pagina web de noticias utilizando HTML semántico y CSS con selectores y clases."
+    />
+    <title>Mi Periodico</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navBar">
+      <nav>
+        <div class="navItem"><h1>Mi Periodico</h1></div>
+        <div class="navItem">
+          <ul class="lista">
+            <li><a href="">Inicio</a></li>
+            <li><a href="">Politica</a></li>
+            <li><a href="">Deportes</a></li>
+            <li><a href="">Cultura</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="container">
+      <section class="secNoticias">
+        <div class="noticia">
+            <h2 class="titNoticia">Titular de la Noticia</h2>
+            <p>Contenido de la noticia</p>
+            <h2 class="titDestacada">Detalles de la Noticia</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Fecha</th>
+                        <th>Autor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <tr>
+                            <td>Politica</td>
+                            <td>25 de marzo,2023</td>
+                            <td>Juan Perez</td>
+                        </tr>
+                
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="noticia">
+            <h2 class="titDestacada">Otra noticia importante</h2>
+            <p>Descricion de la noticia</p>
+        </div>
+      </section>
+      <aside class="secAside">
+        <h2>Noticias Destacadas</h2>
+        <ul>
+            <li><a href="">Evento 1</a></li>
+            <li><a href="">Evento 1</a></li>
+            <li><a href="">Evento 1</a></li>
+        </ul>
+
+      </aside>
+    </main>
+    <footer class="piePag">
+      <div>
+        <p>© Mi Periodico - Todos los derechos reservados</p>
+      </div>
+    </footer>
+  </body>
+</html>
