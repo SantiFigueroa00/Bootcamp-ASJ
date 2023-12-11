@@ -1,0 +1,9 @@
+body{
+    background-color: bisque;
+}
+
+h2 {
+    text-align: center;
+    padding: 10px;
+    border: 2px black dashed;
+}
