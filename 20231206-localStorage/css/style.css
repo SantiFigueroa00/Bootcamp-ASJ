@@ -1,0 +1,266 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+header,main{
+    padding: 0 10%;
+}
+
+main{
+    margin-bottom: 100px;
+}
+a{
+    text-decoration: none;
+}
+
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+
+.listFlex{
+    display: flex;
+    list-style: none;
+    justify-content: end;
+    align-items: center;
+    margin: 0;
+    height: 100%;
+}
+
+.listFlex li{
+    margin: 0 10px;
+    font-size: 1em;
+}
+
+nav a {
+    text-decoration: none; 
+    color: black; 
+    transition: color 0.3s; 
+}
+
+nav a:hover{
+    color: #00c8ff; 
+}
+
+.secProductos{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 30px;
+}
+
+.itemProducto{
+    position: relative;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.itemProducto a{
+    text-decoration: none;
+}
+
+.itemProducto img{
+    width: 100%;
+}
+
+.itemProducto h2{
+    color: #00c8ff;
+    transition: color 0.3s; 
+    font-family: 'Courier New', Courier, monospace;
+}
+.itemProducto h2:hover{
+    color: black;
+}
+
+.descripcion{
+    font-style: italic;
+}
+
+.precio{
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+
+.imgSuperpuesta {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.imgSuperpuesta img {
+    width: 20px; 
+    height: 20px;
+    display: block;
+}
+
+.secBusqueda{
+    display: flex;
+    margin-bottom: 3em;
+
+}
+
+.filtros{
+    flex-grow: 2;
+    display: flex;
+    align-items: center;
+
+}
+
+.filtros form {
+    display: flex;
+    align-items: stretch;
+}
+
+.filtros input{
+    border: 1px solid lightgray;
+
+}
+
+.filtros form button{
+    background-color: rgb(32, 33, 33);
+    color: white;
+    margin-right: 40px;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.filtros select{
+    background-color: rgb(32, 33, 33);
+    color: white;
+    border-style: none;
+    padding: 5px;
+}
+
+.paginacion{
+    display: flex;
+    align-items: center;
+}
+.paginacion a{
+    border: 1px solid lightgray;
+    padding: 10px;
+    text-decoration: none; 
+   color: black;
+}
+
+.paginacion .actived{
+    background-color: #00c8ff;
+    color: white;
+}
+
+.paginacion .disabled{
+    background-color: #d1d2d2;
+    color: gray;
+}
+
+.disabled{
+    color: gray;
+}
+
+.paginacion a:hover{
+    background-color: #00c8ff;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.secBusquedaDetalle{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.itemfiltros{
+    flex-grow: 2;
+}
+
+.detalleProducto{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 20px;
+}
+
+.detalleProducto img{
+    width: 100%;
+    height: 500px;
+}
+
+.detalleProducto h2{
+    font-size: 2em;
+    margin-top: 0;
+}
+
+.contenedorCol{
+    display: flex;
+}
+
+.colores{
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+}
+
+#colBlanco{
+    background: white;
+    border: 1px solid black;
+}
+#colRojo{
+    background: red;
+}
+#colVerde{
+    background: green;
+}
+#colNegro{
+    background: black;
+}
+
+#colBlanco:hover,#colRojo:hover,#colVerde:hover,#colNegro:hover{
+    border: 1px solid black;
+}
+
+
+.formAgregar *{
+    margin: 10px 0;
+}
+
+.formAgregar button{
+    margin: 10px 0;
+    background-color: #00c8ff;
+    border: 0;
+    color: white;
+}
+
+.btnSumRes{
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+}
+
+.btnAgregar{
+    height: 50px;
+    width: 300px;
+}
+
+.conteinerSumRest{
+    display: flex;
+    align-items: center;
+}
+
+.conteinerSumRest input{
+    height: 30px;
+    margin: 0 5px;
+}

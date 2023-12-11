@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pagina para la descripcion o detalle de un Producto"
+    />
+    <title>Detalle de Producto</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <script
+      src="https://kit.fontawesome.com/37939c1163.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navBar">
+        <div class="navItem">
+          <a href="../index.html">
+            <h1>LUBRICENTRO</h1>
+          </a>
+        </div>
+        <div class="navItem">
+          <ul class="listFlex">
+            <li><a href="">HOME</a></li>
+            <li><a href="">SHOP</a></li>
+            <li><a href="">DEMOS</a></li>
+            <li><a href="">BLOCKS</a></li>
+            <li><a href="">COMPONENTS</a></li>
+            <li><a href="">CONTACT US</a></li>
+            <li><a href="">MY CART</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="secBusquedaDetalle">
+        <div class="">
+          <a href="../index.html" class="disabled">Home</a>
+          <a href="">/ Shell</a>
+        </div>
+        <div>
+          <div class="filtros">
+            <form action="">
+              <input type="text" placeholder="Buscar..." />
+              <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </div>
+        </div>
+        <div>
+          <div class="filtros">
+            <form action="">
+              <select name="" id="">
+                <option value="">Opcion 1</option>
+                <option value="">Opcion 2</option>
+                <option value="">Opcion 3</option>
+              </select>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section class="detalleProducto" id="seccionDetalle">
+        <article>
+          <img
+            src="https://img.freepik.com/foto-gratis/mecanico-cambiar-aceite-motor-vehiculo-automovil_342744-260.jpg?w=1060&t=st=1701270342~exp=1701270942~hmac=27addc709c1c4a99a505e0e2d543d02a29baba84f0a80fe49e7620e7750200ed"
+            alt="iamagen de bote de aceite"
+          />
+        </article>
+        <article>
+            <h2>Shell Sintetico</h2>
+            <p class="precio"><strong>$</strong> 100</p>
+            <div class="contenedorCol">
+                <div class="colores" id="colBlanco"></div>
+                <div class="colores" id="colRojo"></div>
+                <div class="colores" id="colVerde"></div>
+                <div class="colores" id="colNegro"></div>
+            </div>
+            <form action="" class="formAgregar">
+                <div class="conteinerSumRest">
+                    <button class="btnSumRes">-</button>
+                    <input type="number">
+                    <button class="btnSumRes">+</button>
+                </div>
+                <Button class="btnAgregar">AGREGAR AL CARRITO</Button>
+            </form>
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dolore voluptate consequuntur ducimus sequi ex fuga, praesentium, magnam mtium eius!</p>
+            <hr>
+            <p>30 dias de garantia</p>
+            <p>Envio gratis</p>
+
+        </article>
+      </section>
+    </main>
+    <footer>© LUBRICENTRO - Todos los derechos reservados</footer>
+    <script type="module" src="../js/detalleProducto.js"></script>
+  </body>
+</html>
