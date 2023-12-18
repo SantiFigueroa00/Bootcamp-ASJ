@@ -14,6 +14,11 @@ import { FormsModule } from '@angular/forms';
 import { SimpsonComponent } from './components/proyects/simpson/simpson.component';
 import { TableComponent } from './components/proyects/simpson/compSimpson/table/table.component';
 import { FormComponent } from './components/proyects/simpson/compSimpson/form/form.component';
+import { RickAndMortyComponent } from './components/proyects/rick-and-morty/rick-and-morty.component';
+import { DetailComponent } from './components/proyects/rick-and-morty/compRick/detail/detail.component';
+import { TableRickComponent } from './components/proyects/rick-and-morty/compRick/table-rick/table-rick.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +28,10 @@ import { FormComponent } from './components/proyects/simpson/compSimpson/form/fo
     ToDoListComponent,
     SimpsonComponent,
     TableComponent,
-    FormComponent
+    FormComponent,
+    RickAndMortyComponent,
+    DetailComponent,
+    TableRickComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +41,7 @@ import { FormComponent } from './components/proyects/simpson/compSimpson/form/fo
     MegaMenuModule,
     MenubarModule,
     FormsModule,
-
+    HttpClientModule 
   ],
   providers: [
     provideClientHydration()
