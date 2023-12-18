@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div
+        class="row g-2 pb-2"
+    >
+        <div class="col-3 px-2" >
+            <div class="card" id="asideBar">
+                <div class="list-group">
+        
+                    <a class="list-group-item list-group-item-action" aria-current="true" [routerLink]="['/toDoList']" routerLinkActive="active"
+                    >
+                        To Do List
+                    </a>
+                    <a class="list-group-item list-group-item-action" aria-current="true" [routerLink]="['/simpson']" routerLinkActive="active"  
+                    >
+                        The Simpsons
+                    </a>
+
+                  </div>
+            </div>
+        </div>
+        <div class="col-9 px-2" >
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+    
+    
+</div>

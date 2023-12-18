@@ -1,0 +1,28 @@
+<h2>Table Character</h2>
+<hr>
+<div
+    class="table-responsive"
+>
+    <table
+        class="table table-striped table-hover table-borderless  align-middle"
+    >
+        <thead class="table-light"> 
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Profession</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let item of sendObj">
+                <td scope="row"><img src="{{item.url}}" alt="" class=""></td>
+                <td>{{item.name}}</td>
+                <td>{{item.prof}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            
+        </tfoot>
+    </table>
+</div>
+

@@ -11,14 +11,19 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { ToDoListComponent } from './components/proyects/to-do-list/to-do-list.component';
 import { FormsModule } from '@angular/forms';
-
+import { SimpsonComponent } from './components/proyects/simpson/simpson.component';
+import { TableComponent } from './components/proyects/simpson/compSimpson/table/table.component';
+import { FormComponent } from './components/proyects/simpson/compSimpson/form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     MainLayoutComponent,
-    ToDoListComponent
+    ToDoListComponent,
+    SimpsonComponent,
+    TableComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     ButtonModule,
     MegaMenuModule,
     MenubarModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [
     provideClientHydration()

@@ -1,0 +1,49 @@
+<h2>Character Form</h2>
+<hr>
+<div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input
+        type="text"
+        class="form-control"
+        name="name"
+        id="name"
+        aria-describedby="helpId"
+        placeholder="Homer"
+        #name
+    />
+</div>
+<div class="mb-3">
+    <label for="url" class="form-label">Image URL</label>
+    <input
+        type="url"
+        class="form-control"
+        name="url"
+        id="url"
+        aria-describedby="helpId"
+        placeholder="www.homer.jpg"
+        #url
+    />
+</div>
+<div class="mb-3">
+    <label for="prof" class="form-label">Profession</label>
+    <input
+        type="text"
+        class="form-control"
+        name="prof"
+        id="prof"
+        aria-describedby="helpId"
+        placeholder="Tecnic"
+        #prof
+    />
+</div>
+<div class="mb-3">
+    <div class="d-flex justify-content-end">
+        <button
+        class="btn btn-outline-primary"
+        (click)="send(name.value,prof.value,url.value)"
+    >
+        Add to Table
+    </button>
+    </div>
+</div>
+
