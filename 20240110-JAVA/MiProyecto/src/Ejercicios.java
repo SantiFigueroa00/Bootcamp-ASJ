@@ -9,13 +9,13 @@ public class Ejercicios {
 		// TODO Auto-generated method stub
 
 		Scanner scanner = new Scanner(System.in);
+		String condition ="";
 		
 		
 		//Crear un programa donde se introduzcan los tres ángulos internos de un triángulo y se determine si el triángulo es válido o no.
 		
-		int a,b,c;
-		String condition ="";
 		/*
+		int a,b,c;
 		System.out.println("---------Ejercicio 1 ----------");
 		do {
 			System.out.println("Ingrese el valor de 3 angulos internos de un triangulo (ej: 60 60 60): ");
@@ -119,7 +119,7 @@ public class Ejercicios {
 		
 		System.out.println("---------Ejercicio 5 ----------");
 		
-		int sum=0;
+		int a;
 		
 		do {
 			do {
