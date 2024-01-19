@@ -15,7 +15,7 @@ public class Ejercicio4 {
         Random random = new Random();
 
         while (numerosUnicos.size() < 9) {
-            int numeroAleatorio = random.nextInt(51) + 1; 
+            int numeroAleatorio = random.nextInt(50) + 1; 
             numerosUnicos.add(numeroAleatorio);
         }
 

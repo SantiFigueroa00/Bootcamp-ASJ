@@ -16,7 +16,7 @@ public class Ejercicio2 {
 
         if (numbers.length > 0) {
             int lastElement = numbers[numbers.length - 1];
-
+// 1 2 3
             for (int i = numbers.length - 1; i > 0; i--) {
                 numbers[i] = numbers[i - 1];
             }
