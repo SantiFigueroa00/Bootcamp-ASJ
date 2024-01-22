@@ -1,28 +1,63 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ToDoListService } from '../../../services/to-do-list.service';
 
 @Component({
   selector: 'app-to-do-list',
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.css'
 })
-export class ToDoListComponent {
+export class ToDoListComponent implements OnInit {
   nameTask = "";
-  list: { name: string, date: string }[] = [];
+  list: {id:number, name: string, description: string, state:boolean }[] = [];
   completedTasks: { name: string, date: string }[] = [];
-  deletedList: { name: string, date: string }[] = [];
-  fecha: string = "";
+  deletedList: {id:number, name: string, description: string, state:boolean }[] = [];
+  description: string = "";
   
+  constructor(private todoListService: ToDoListService){}
+
+  ngOnInit(): void {
+
+    this.todoListService.getTasks().subscribe(tasks => {
+      this.list=[];
+      this.deletedList=[];
+      tasks.forEach((t: {id:number, name: string, description: string, state:boolean }) => {
+        if(!t.state){
+          this.list.push(t);
+        }else{
+          this.deletedList.push(t);
+        }
+      });
+    });
+  }
+
   addTask() {
-    this.list.push({name: this.nameTask,date: this.fecha});
+    const newTask={name: this.nameTask, description:this.description, state:false}
+
+    this.todoListService.createTask(newTask).subscribe((res)=>{
+      console.log(res.body);
+      this.ngOnInit();
+    })
     this.nameTask="";
-    this.fecha ="";
+    this.description ="";
   }
+
   removeTask(index: number) {
-    if (index >= 0 && index < this.list.length) {
-      const deletedTask = this.list.splice(index, 1)[0];
-      this.deletedList.push(deletedTask);
-    }
+    this.todoListService.deleteTask(index).subscribe((res)=>{
+      console.log(res.body);
+      this.ngOnInit();
+    })
   }
+
+  changeTask(editTask: any) {
+    editTask.state = !editTask.state;
+    console.log(editTask.state);
+    this.todoListService.editTask(editTask).subscribe((res)=>{
+      console.log(res.body);
+      this.ngOnInit();
+    })
+  }
+
+
   toggleActive() {
     
   }

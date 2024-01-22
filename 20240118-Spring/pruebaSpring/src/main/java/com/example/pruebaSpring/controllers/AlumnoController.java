@@ -60,6 +60,7 @@ public class AlumnoController {
 	        return "Error: Ya existe un alumno con el ID " + newAlumno.getId();
 	    }
 		
+		newAlumno.setId(alumnos.getLast().getId()+1);
 		alumnos.add(newAlumno); 
 		return "Creando un Alumno: " + newAlumno.toString();
 	}
@@ -71,7 +72,7 @@ public class AlumnoController {
                 // Actualizar la información del alumno existente con la nueva información
                 alumno.setNombre(alumnoActualizado.getNombre());
                 alumno.setApellido(alumnoActualizado.getApellido());
-                alumno.setNota(alumnoActualizado.getId());
+                alumno.setNota(alumnoActualizado.getNota());
                 return "Actualizando el alumno con ID " + id;
             }
         } 
