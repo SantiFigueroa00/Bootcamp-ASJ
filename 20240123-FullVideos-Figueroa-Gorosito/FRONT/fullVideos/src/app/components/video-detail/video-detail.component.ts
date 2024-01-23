@@ -11,89 +11,82 @@ import { VideoService } from '../../services/video.service';
   styleUrls: ['./video-detail.component.css']
 })
 export class VideoDetailComponent implements OnInit {
-  video?: Video= {id: 1, title: 'hola', description: 'soy una pelicual',category: 'accion',url: 'https://www.youtube.com/embed/HUR_LwnEasU?si=hvxA_8CnXYZ4LCyw',rating: 1,views:0,dislikes:0,likes:0};
+  video: Video= {
+    url: '',
+    category: '',
+    title: '',
+    description: '',
+    views: 0,
+    likes: 0,
+    dislikes: 0,
+    rating: 0,
+    id: 0
+  };
   liked: boolean = false;
   disliked: boolean = false;
+  safeUrl: SafeResourceUrl;
+  stars: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  constructor(private route: ActivatedRoute, private videoService: VideoService, public sanitizer: DomSanitizer) { }
+  constructor(private route: ActivatedRoute, private videoService: VideoService, private sanitizer: DomSanitizer) {
+    this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.video.url);
+  }
 
 
   ngOnInit(): void {
     // Obtiene el ID del video de la URL
-    const videoId = this.route.snapshot.paramMap.get('id');
+    const videoIdString = this.route.snapshot.paramMap.get('id');
+    const videoId = videoIdString ? parseInt(videoIdString) : null;
 
-    // Llama al servicio para obtener los detalles del video
-    // this.videoService.getVideoById(videoId).subscribe(
-    //   data => {
-    //     this.video = data;
-    //   },
-    //   error => {
-    //     console.error('Error al cargar los detalles del video:', error);
-    //   }
-    // );
+    if (videoId !== null && !isNaN(videoId)) {
+      this.videoService.getVideoById(videoId).subscribe(
+        data => {
+          this.video = data;
+          console.log(this.video);
+          this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.video.url);
+        }
+      );
+    } else {
+      console.error('ID de video no válido.');
+    }
   }
 
-  // toggleLike() {
-  //   // Implementa la lógica para dar/retirar like al video
-  //   if (this.liked) {
-  //     // Llama al servicio para retirar el like
-  //     this.videoService.unlikeVideo(this.video.id).subscribe(
-  //       () => {
-  //         this.liked = false;
-  //         this.video.likes--;
-  //       },
-  //       error => {
-  //         console.error('Error al retirar el like:', error);
-  //       }
-  //     );
-  //   } else {
-  //     // Llama al servicio para dar like al video
-  //     this.videoService.likeVideo(this.video.id).subscribe(
-  //       () => {
-  //         this.liked = true;
-  //         this.video.likes++;
-          
-  //         // Si ya se había dado dislike, retirarlo
-  //         if (this.disliked) {
-  //           this.toggleDislike();
-  //         }
-  //       },
-  //       error => {
-  //         console.error('Error al dar like:', error);
-  //       }
-  //     );
-  //   }
-  // }
+  toggleLike() {
+    // Implementa la lógica para dar/retirar like al video
+    if (this.liked) {
+      // Llama al servicio para retirar el like
+      this.liked = false;
+      this.video.likes--;
+      this.videoService.updateVideo(this.video).subscribe();
+    } else {
+      // Llama al servicio para dar like al video
+      this.liked = true;
+      this.video.likes++;
+      
+      // Si ya se había dado dislike, retirarlo
+      if (this.disliked) {
+        this.toggleDislike();
+      }
+      this.videoService.updateVideo(this.video).subscribe();
+    }
+  }
 
-  // toggleDislike() {
-  //   // Implementa la lógica para dar/retirar dislike al video
-  //   if (this.disliked) {
-  //     // Llama al servicio para retirar el dislike
-  //     this.videoService.undislikeVideo(this.video.id).subscribe(
-  //       () => {
-  //         this.disliked = false;
-  //         this.video.dislikes--;
-  //       },
-  //       error => {
-  //         console.error('Error al retirar el dislike:', error);
-  //       }
-  //     );
-  //   } else {
-  //     // Llama al servicio para dar dislike al video
-  //     this.videoService.dislikeVideo(this.video.id).subscribe(
-  //       () => {
-  //         this.disliked = true;
-  //         this.video.dislikes++;
-          
-  //         // Si ya se había dado like, retirarlo
-  //         if (this.liked) {
-  //           this.toggleLike();
-  //         }
-  //       },
-  //       error => {
-  //         console.error('Error al dar dislike:', error);
-  //       }
-  //     );
-  //   }
-  // }
+  toggleDislike() {
+    // Implementa la lógica para dar/retirar dislike al video
+    if (this.disliked) {
+      // Llama al servicio para retirar el dislike
+      this.disliked = false;
+      this.video.dislikes--;
+      this.videoService.updateVideo(this.video).subscribe();
+    } else {
+      // Llama al servicio para dar dislike al video
+      this.disliked = true;
+      this.video.dislikes++;
+      
+      // Si ya se había dado like, retirarlo
+      if (this.liked) {
+        this.toggleLike();
+      }
+      this.videoService.updateVideo(this.video).subscribe();
+    }
+  }
 }

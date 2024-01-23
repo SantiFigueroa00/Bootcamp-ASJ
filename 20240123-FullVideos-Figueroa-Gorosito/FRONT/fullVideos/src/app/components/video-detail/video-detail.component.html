@@ -2,7 +2,7 @@
     <h2>Detalle del Video</h2>
     <div *ngIf="video">
         <div class="embed-responsive embed-responsive-16by9 mb-4">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/HUR_LwnEasU?si=hvxA_8CnXYZ4LCyw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="560" height="315" [src]="safeUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
         <div>
             <p>Categoría: {{ video.category }}</p>
@@ -10,8 +10,22 @@
             <p>Descripción: {{ video.description }}</p>
             <p>Vistas: {{ video.views }}</p>
             <p>Likes: {{ video.likes }} | Dislikes: {{ video.dislikes }}</p>
-            <!-- <button class="btn btn-primary" (click)="toggleLike()">Like</button>
-            <button class="btn btn-danger" (click)="toggleDislike()">Dislike</button> -->
+
+            <div class="rating">
+                <i *ngFor="let star of stars" class="fas fa-star" [ngClass]="{ 'star-filled': star <= video.rating, 'half-star': star - 0.5 === video.rating }"></i>
+            </div>
+            
+            <p>{{ video.rating }}/10</p>
+
+            <!-- Botón de Like -->
+            <button class="btn btn-primary" (click)="toggleLike()">
+                <i [class]="liked ? 'fas fa-thumbs-up text-success' : 'far fa-thumbs-up'"></i> Like
+            </button>
+
+            <!-- Botón de Dislike -->
+            <button class="btn btn-danger" (click)="toggleDislike()">
+                <i [class]="disliked ? 'fas fa-thumbs-down text-danger' : 'far fa-thumbs-down'"></i> Dislike
+            </button>
         </div>
     </div>
 </div>

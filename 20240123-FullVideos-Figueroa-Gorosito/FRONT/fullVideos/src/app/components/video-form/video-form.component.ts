@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { VideoService } from '../../services/video.service';
+import { Video } from '../../models/Video';
 
 @Component({
   selector: 'app-video-form',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 export class VideoFormComponent implements OnInit {
   videoForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, public videoService: VideoService) {
     this.videoForm = this.formBuilder.group({
       url: ['', [Validators.required]],
       category: ['', [Validators.required]],
@@ -28,12 +30,14 @@ export class VideoFormComponent implements OnInit {
   }
 
   onSubmit() {
-    // Aquí puedes enviar los datos al backend
-    // y luego redirigir a la vista de la tabla de videos
     console.log('Formulario enviado:', this.videoForm.value);
     if (this.videoForm.valid) {
-      this.router.navigate(['/videos']);
+      const video :Video=  this.videoForm.value;
+      console.log(video);
+      this.videoService.createVideo(video).subscribe(res=>{
+        console.log(res);
+        this.router.navigate(['/videos']);
+      });
     }
-    // Simulación de redirección a la vista de la tabla de videos
   }
 }
