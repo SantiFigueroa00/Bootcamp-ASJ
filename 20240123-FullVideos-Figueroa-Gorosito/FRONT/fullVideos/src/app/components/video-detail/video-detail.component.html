@@ -1,0 +1,17 @@
+<div class="container mt-4">
+    <h2>Detalle del Video</h2>
+    <div *ngIf="video">
+        <div class="embed-responsive embed-responsive-16by9 mb-4">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/HUR_LwnEasU?si=hvxA_8CnXYZ4LCyw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div>
+            <p>Categoría: {{ video.category }}</p>
+            <p>Título: {{ video.title }}</p>
+            <p>Descripción: {{ video.description }}</p>
+            <p>Vistas: {{ video.views }}</p>
+            <p>Likes: {{ video.likes }} | Dislikes: {{ video.dislikes }}</p>
+            <!-- <button class="btn btn-primary" (click)="toggleLike()">Like</button>
+            <button class="btn btn-danger" (click)="toggleDislike()">Dislike</button> -->
+        </div>
+    </div>
+</div>
